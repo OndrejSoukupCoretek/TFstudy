@@ -1,0 +1,64 @@
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+random_string.linux-vm-name: Creating...
+random_password.linux-vm-password: Creating...
+random_string.linux-vm-name: Creation complete after 0s [id=lwhvbjio]
+random_password.linux-vm-password: Creation complete after 1s [id=none]
+azurerm_resource_group.network-rg: Creating...
+azurerm_resource_group.network-rg: Creation complete after 0s [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg]
+azurerm_virtual_network.network-vnet: Creating...
+azurerm_public_ip.linux-vm-ip: Creating...
+azurerm_network_security_group.linux-vm-nsg: Creating...
+azurerm_public_ip.linux-vm-ip: Creation complete after 3s [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/publicIPAddresses/linux-lwhvbjio-ip]
+azurerm_virtual_network.network-vnet: Creation complete after 5s [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/virtualNetworks/linux-web-challenge-vnet]
+azurerm_network_security_group.linux-vm-nsg: Creation complete after 4s [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/networkSecurityGroups/linux-challenge-lwhvbjio-nsg]
+azurerm_subnet.network-subnet: Creating...
+azurerm_subnet.network-subnet: Creation complete after 3s [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/virtualNetworks/linux-web-challenge-vnet/subnets/linux-web-challenge-subnet]
+azurerm_subnet_network_security_group_association.linux-vm-nsg-association: Creating...
+azurerm_network_interface.linux-vm-nic: Creating...
+azurerm_subnet_network_security_group_association.linux-vm-nsg-association: Creation complete after 3s [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/virtualNetworks/linux-web-challenge-vnet/subnets/linux-web-challenge-subnet]
+azurerm_network_interface.linux-vm-nic: Creation complete after 4s [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/networkInterfaces/linux-lwhvbjio-nic]
+azurerm_linux_virtual_machine.linux-vm: Creating...
+azurerm_linux_virtual_machine.linux-vm: Still creating... [10s elapsed]
+azurerm_linux_virtual_machine.linux-vm: Still creating... [20s elapsed]
+azurerm_linux_virtual_machine.linux-vm: Creation complete after 23s [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Compute/virtualMachines/linux-lwhvbjio-vm]
+╷
+│ Warning: Argument is deprecated
+│
+│   with azurerm_subnet.network-subnet,
+│   on net.tf line 29, in resource "azurerm_subnet" "network-subnet":
+│   29:   address_prefix       = var.network-subnet-cidr
+│
+│ Use the `address_prefixes` property instead.
+╵
+
+Apply complete! Resources: 10 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+linux_vm_admin_password = <sensitive>
+linux_vm_admin_username = "tfroot"
+linux_vm_ip_address = "40.70.206.151"
+linux_vm_name = "linux-lwhvbjio-vm"
+network_resource_group_id = "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg"
+network_subnet_id = "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/virtualNetworks/linux-web-challenge-vnet/subnets/linux-web-challenge-subnet"
+network_vnet_id = "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/virtualNetworks/linux-web-challenge-vnet"
+ondrejsoukup@Azure:~/clouddrive/TFstudy/01$ ls -l
+total 32
+-rwxrwxrwx 1 ondrejsoukup ondrejsoukup   615 Aug 19 21:43 app-var.tf
+-rwxrwxrwx 1 ondrejsoukup ondrejsoukup  4548 Aug 20 00:48 linux_vm.tf
+-rwxrwxrwx 1 ondrejsoukup ondrejsoukup   774 Aug 19 18:21 linux_vm-var.tf
+-rwxrwxrwx 1 ondrejsoukup ondrejsoukup   719 Aug 20 16:12 lnux_vm-out.tf
+-rwxrwxrwx 1 ondrejsoukup ondrejsoukup   343 Aug 19 18:21 net-out.tf
+-rwxrwxrwx 1 ondrejsoukup ondrejsoukup  1164 Aug 19 18:21 net.tf
+-rwxrwxrwx 1 ondrejsoukup ondrejsoukup   317 Aug 19 18:21 net-var.tf
+-rwxrwxrwx 1 ondrejsoukup ondrejsoukup   289 Aug 19 18:21 prov.tf
+-rwxrwxrwx 1 ondrejsoukup ondrejsoukup   521 Aug 19 18:21 prov-var.tf
+-rwxrwxrwx 1 ondrejsoukup ondrejsoukup    29 Aug 19 18:21 README.md
+-rwxrwxrwx 1 ondrejsoukup ondrejsoukup 18523 Aug 20 16:15 terraform.tfstate
+-rwxrwxrwx 1 ondrejsoukup ondrejsoukup   752 Aug 20 16:10 terraform.tfvars
+ondrejsoukup@Azure:~/clouddrive/TFstudy/01$
