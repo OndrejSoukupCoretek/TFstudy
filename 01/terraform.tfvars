@@ -5,6 +5,8 @@ company     = "OndrejSoukup"
 app_name    = "web"
 environment = "challenge"
 location    = "useast2"
+azure-subscription-id = "aaa0e033-4f96-4b05-b6e0-e27b611d922f"
+
 
 #_______________________________________________________________________________
 # Network
