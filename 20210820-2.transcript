@@ -1,0 +1,483 @@
+ondrejsoukup@Azure:~/clouddrive/TFstudy/01$ ls -l
+total 32
+-rwxrwxrwx 1 ondrejsoukup ondrejsoukup   615 Aug 19 21:43 app-var.tf
+-rwxrwxrwx 1 ondrejsoukup ondrejsoukup   719 Aug 20 16:35 linux_vm-out.tf
+-rwxrwxrwx 1 ondrejsoukup ondrejsoukup  4548 Aug 20 00:48 linux_vm.tf
+-rwxrwxrwx 1 ondrejsoukup ondrejsoukup   774 Aug 19 18:21 linux_vm-var.tf
+-rwxrwxrwx 1 ondrejsoukup ondrejsoukup   343 Aug 19 18:21 net-out.tf
+-rwxrwxrwx 1 ondrejsoukup ondrejsoukup  1164 Aug 19 18:21 net.tf
+-rwxrwxrwx 1 ondrejsoukup ondrejsoukup   317 Aug 19 18:21 net-var.tf
+-rwxrwxrwx 1 ondrejsoukup ondrejsoukup   289 Aug 19 18:21 prov.tf
+-rwxrwxrwx 1 ondrejsoukup ondrejsoukup   521 Aug 19 18:21 prov-var.tf
+-rwxrwxrwx 1 ondrejsoukup ondrejsoukup    29 Aug 19 18:21 README.md
+-rwxrwxrwx 1 ondrejsoukup ondrejsoukup 18523 Aug 20 16:15 terraform.tfstate
+-rwxrwxrwx 1 ondrejsoukup ondrejsoukup   752 Aug 20 16:10 terraform.tfvars
+ondrejsoukup@Azure:~/clouddrive/TFstudy/01$ cat terraform.tfstate
+{
+  "version": 4,
+  "terraform_version": "1.0.3",
+  "serial": 11,
+  "lineage": "94f0d671-52df-7f12-a1cf-d6292d75e8f2",
+  "outputs": {
+    "linux_vm_admin_password": {
+      "value": "pID\u0026ayEa!@!y#qHf",
+      "type": "string",
+      "sensitive": true
+    },
+    "linux_vm_admin_username": {
+      "value": "tfroot",
+      "type": "string"
+    },
+    "linux_vm_ip_address": {
+      "value": "40.70.206.151",
+      "type": "string"
+    },
+    "linux_vm_name": {
+      "value": "linux-lwhvbjio-vm",
+      "type": "string"
+    },
+    "network_resource_group_id": {
+      "value": "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg",
+      "type": "string"
+    },
+    "network_subnet_id": {
+      "value": "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/virtualNetworks/linux-web-challenge-vnet/subnets/linux-web-challenge-subnet",
+      "type": "string"
+    },
+    "network_vnet_id": {
+      "value": "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/virtualNetworks/linux-web-challenge-vnet",
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "mode": "managed",
+      "type": "azurerm_linux_virtual_machine",
+      "name": "linux-vm",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "additional_capabilities": [],
+            "admin_password": "pID\u0026ayEa!@!y#qHf",
+            "admin_ssh_key": [],
+            "admin_username": "tfroot",
+            "allow_extension_operations": true,
+            "availability_set_id": "",
+            "boot_diagnostics": [],
+            "computer_name": "linux-lwhvbjio-vm",
+            "custom_data": null,
+            "dedicated_host_id": "",
+            "disable_password_authentication": false,
+            "encryption_at_host_enabled": false,
+            "eviction_policy": "",
+            "extensions_time_budget": "PT1H30M",
+            "id": "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Compute/virtualMachines/linux-lwhvbjio-vm",
+            "identity": [],
+            "license_type": "",
+            "location": "eastus2",
+            "max_bid_price": -1,
+            "name": "linux-lwhvbjio-vm",
+            "network_interface_ids": [
+              "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/networkInterfaces/linux-lwhvbjio-nic"
+            ],
+            "os_disk": [
+              {
+                "caching": "ReadWrite",
+                "diff_disk_settings": [],
+                "disk_encryption_set_id": "",
+                "disk_size_gb": 30,
+                "name": "linux-lwhvbjio-disk",
+                "storage_account_type": "Standard_LRS",
+                "write_accelerator_enabled": false
+              }
+            ],
+            "plan": [],
+            "platform_fault_domain": -1,
+            "priority": "Regular",
+            "private_ip_address": "10.11.1.4",
+            "private_ip_addresses": [
+              "10.11.1.4"
+            ],
+            "provision_vm_agent": true,
+            "proximity_placement_group_id": "",
+            "public_ip_address": "40.70.206.151",
+            "public_ip_addresses": [
+              "40.70.206.151"
+            ],
+            "resource_group_name": "linux-web-challenge-rg",
+            "secret": [],
+            "size": "Standard_B1s",
+            "source_image_id": "",
+            "source_image_reference": [
+              {
+                "offer": "UbuntuServer",
+                "publisher": "Canonical",
+                "sku": "18.04-LTS",
+                "version": "latest"
+              }
+            ],
+            "tags": {
+              "environment": "challenge"
+            },
+            "timeouts": null,
+            "virtual_machine_id": "e2917f01-1222-48bd-840b-879285876394",
+            "virtual_machine_scale_set_id": "",
+            "zone": ""
+          },
+          "sensitive_attributes": [
+            [
+              {
+                "type": "get_attr",
+                "value": "admin_password"
+              }
+            ]
+          ],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoyNzAwMDAwMDAwMDAwLCJkZWxldGUiOjI3MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjoyNzAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "azurerm_network_interface.linux-vm-nic",
+            "azurerm_public_ip.linux-vm-ip",
+            "azurerm_resource_group.network-rg",
+            "azurerm_subnet.network-subnet",
+            "azurerm_virtual_network.network-vnet",
+            "random_password.linux-vm-password",
+            "random_string.linux-vm-name"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "azurerm_network_interface",
+      "name": "linux-vm-nic",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "applied_dns_servers": [],
+            "dns_servers": [],
+            "enable_accelerated_networking": false,
+            "enable_ip_forwarding": false,
+            "id": "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/networkInterfaces/linux-lwhvbjio-nic",
+            "internal_dns_name_label": "",
+            "internal_domain_name_suffix": "kthygt1phx1uvcrng5ksjqefwb.cx.internal.cloudapp.net",
+            "ip_configuration": [
+              {
+                "name": "internal",
+                "primary": true,
+                "private_ip_address": "10.11.1.4",
+                "private_ip_address_allocation": "Dynamic",
+                "private_ip_address_version": "IPv4",
+                "public_ip_address_id": "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/publicIPAddresses/linux-lwhvbjio-ip",
+                "subnet_id": "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/virtualNetworks/linux-web-challenge-vnet/subnets/linux-web-challenge-subnet"
+              }
+            ],
+            "location": "eastus2",
+            "mac_address": "",
+            "name": "linux-lwhvbjio-nic",
+            "private_ip_address": "10.11.1.4",
+            "private_ip_addresses": [
+              "10.11.1.4"
+            ],
+            "resource_group_name": "linux-web-challenge-rg",
+            "tags": {
+              "environment": "challenge"
+            },
+            "timeouts": null,
+            "virtual_machine_id": ""
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjE4MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjoxODAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "azurerm_public_ip.linux-vm-ip",
+            "azurerm_resource_group.network-rg",
+            "azurerm_subnet.network-subnet",
+            "azurerm_virtual_network.network-vnet",
+            "random_string.linux-vm-name"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "azurerm_network_security_group",
+      "name": "linux-vm-nsg",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/networkSecurityGroups/linux-challenge-lwhvbjio-nsg",
+            "location": "eastus2",
+            "name": "linux-challenge-lwhvbjio-nsg",
+            "resource_group_name": "linux-web-challenge-rg",
+            "security_rule": [
+              {
+                "access": "Allow",
+                "description": "Allow SSH",
+                "destination_address_prefix": "*",
+                "destination_address_prefixes": [],
+                "destination_application_security_group_ids": [],
+                "destination_port_range": "22",
+                "destination_port_ranges": [],
+                "direction": "Inbound",
+                "name": "AllowSSH",
+                "priority": 150,
+                "protocol": "Tcp",
+                "source_address_prefix": "Internet",
+                "source_address_prefixes": [],
+                "source_application_security_group_ids": [],
+                "source_port_range": "*",
+                "source_port_ranges": []
+              },
+              {
+                "access": "Allow",
+                "description": "Allow linux",
+                "destination_address_prefix": "*",
+                "destination_address_prefixes": [],
+                "destination_application_security_group_ids": [],
+                "destination_port_range": "80",
+                "destination_port_ranges": [],
+                "direction": "Inbound",
+                "name": "Allowlinux",
+                "priority": 100,
+                "protocol": "Tcp",
+                "source_address_prefix": "Internet",
+                "source_address_prefixes": [],
+                "source_application_security_group_ids": [],
+                "source_port_range": "*",
+                "source_port_ranges": []
+              }
+            ],
+            "tags": {
+              "environment": "challenge"
+            },
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjE4MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjoxODAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "azurerm_resource_group.network-rg",
+            "random_string.linux-vm-name"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "azurerm_public_ip",
+      "name": "linux-vm-ip",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "allocation_method": "Static",
+            "availability_zone": "No-Zone",
+            "domain_name_label": null,
+            "fqdn": null,
+            "id": "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/publicIPAddresses/linux-lwhvbjio-ip",
+            "idle_timeout_in_minutes": 4,
+            "ip_address": "40.70.206.151",
+            "ip_tags": null,
+            "ip_version": "IPv4",
+            "location": "eastus2",
+            "name": "linux-lwhvbjio-ip",
+            "public_ip_prefix_id": null,
+            "resource_group_name": "linux-web-challenge-rg",
+            "reverse_fqdn": null,
+            "sku": "Basic",
+            "sku_tier": "Regional",
+            "tags": {
+              "environment": "challenge"
+            },
+            "timeouts": null,
+            "zones": []
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjE4MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjoxODAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "azurerm_resource_group.network-rg",
+            "random_string.linux-vm-name"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "azurerm_resource_group",
+      "name": "network-rg",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg",
+            "location": "eastus2",
+            "name": "linux-web-challenge-rg",
+            "tags": {
+              "application": "web",
+              "environment": "challenge"
+            },
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo1NDAwMDAwMDAwMDAwLCJkZWxldGUiOjU0MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjo1NDAwMDAwMDAwMDAwfX0="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "azurerm_subnet",
+      "name": "network-subnet",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "address_prefix": "10.11.1.0/24",
+            "address_prefixes": [
+              "10.11.1.0/24"
+            ],
+            "delegation": [],
+            "enforce_private_link_endpoint_network_policies": false,
+            "enforce_private_link_service_network_policies": false,
+            "id": "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/virtualNetworks/linux-web-challenge-vnet/subnets/linux-web-challenge-subnet",
+            "name": "linux-web-challenge-subnet",
+            "resource_group_name": "linux-web-challenge-rg",
+            "service_endpoint_policy_ids": null,
+            "service_endpoints": null,
+            "timeouts": null,
+            "virtual_network_name": "linux-web-challenge-vnet"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjE4MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjoxODAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "azurerm_resource_group.network-rg",
+            "azurerm_virtual_network.network-vnet"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "azurerm_subnet_network_security_group_association",
+      "name": "linux-vm-nsg-association",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/virtualNetworks/linux-web-challenge-vnet/subnets/linux-web-challenge-subnet",
+            "network_security_group_id": "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/networkSecurityGroups/linux-challenge-lwhvbjio-nsg",
+            "subnet_id": "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/virtualNetworks/linux-web-challenge-vnet/subnets/linux-web-challenge-subnet",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjE4MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjoxODAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "azurerm_network_security_group.linux-vm-nsg",
+            "azurerm_resource_group.network-rg",
+            "azurerm_subnet.network-subnet",
+            "azurerm_virtual_network.network-vnet",
+            "random_string.linux-vm-name"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "azurerm_virtual_network",
+      "name": "network-vnet",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "address_space": [
+              "10.11.0.0/16"
+            ],
+            "bgp_community": "",
+            "ddos_protection_plan": [],
+            "dns_servers": [],
+            "guid": "4f83cf54-3d6f-4af7-8a2d-37d524c085b1",
+            "id": "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/virtualNetworks/linux-web-challenge-vnet",
+            "location": "eastus2",
+            "name": "linux-web-challenge-vnet",
+            "resource_group_name": "linux-web-challenge-rg",
+            "subnet": [],
+            "tags": {
+              "application": "web",
+              "environment": "challenge"
+            },
+            "timeouts": null,
+            "vm_protection_enabled": false
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjE4MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjoxODAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "azurerm_resource_group.network-rg"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "random_password",
+      "name": "linux-vm-password",
+      "provider": "provider[\"registry.terraform.io/hashicorp/random\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "none",
+            "keepers": null,
+            "length": 16,
+            "lower": true,
+            "min_lower": 2,
+            "min_numeric": 0,
+            "min_special": 2,
+            "min_upper": 2,
+            "number": true,
+            "override_special": "!@#$%\u0026",
+            "result": "pID\u0026ayEa!@!y#qHf",
+            "special": true,
+            "upper": true
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "random_string",
+      "name": "linux-vm-name",
+      "provider": "provider[\"registry.terraform.io/hashicorp/random\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "id": "lwhvbjio",
+            "keepers": null,
+            "length": 8,
+            "lower": true,
+            "min_lower": 0,
+            "min_numeric": 0,
+            "min_special": 0,
+            "min_upper": 0,
+            "number": false,
+            "override_special": null,
+            "result": "lwhvbjio",
+            "special": false,
+            "upper": false
+          },
+          "sensitive_attributes": [],
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        }
+      ]
+    }
+  ]
+}

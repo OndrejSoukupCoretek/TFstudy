@@ -1,0 +1,411 @@
+ondrejsoukup@Azure:~$ cd clouddrive/TFstudy/01
+ondrejsoukup@Azure:~/clouddrive/TFstudy/01$ terraform destroy
+var.azure-client-secret
+  Azure Client Secret
+
+  Enter a value: Passw0rdkrtek
+
+random_string.linux-vm-name: Refreshing state... [id=lwhvbjio]
+random_password.linux-vm-password: Refreshing state... [id=none]
+azurerm_resource_group.network-rg: Refreshing state... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg]
+azurerm_virtual_network.network-vnet: Refreshing state... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/virtualNetworks/linux-web-challenge-vnet]
+azurerm_public_ip.linux-vm-ip: Refreshing state... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/publicIPAddresses/linux-lwhvbjio-ip]
+azurerm_network_security_group.linux-vm-nsg: Refreshing state... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/networkSecurityGroups/linux-challenge-lwhvbjio-nsg]
+azurerm_subnet.network-subnet: Refreshing state... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/virtualNetworks/linux-web-challenge-vnet/subnets/linux-web-challenge-subnet]
+azurerm_subnet_network_security_group_association.linux-vm-nsg-association: Refreshing state... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/virtualNetworks/linux-web-challenge-vnet/subnets/linux-web-challenge-subnet]
+azurerm_network_interface.linux-vm-nic: Refreshing state... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/networkInterfaces/linux-lwhvbjio-nic]
+azurerm_linux_virtual_machine.linux-vm: Refreshing state... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Compute/virtualMachines/linux-lwhvbjio-vm]
+
+Note: Objects have changed outside of Terraform
+
+Terraform detected the following changes made outside of Terraform since the last "terraform apply":
+
+  # azurerm_public_ip.linux-vm-ip has been changed
+  ~ resource "azurerm_public_ip" "linux-vm-ip" {
+        id                      = "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/publicIPAddresses/linux-lwhvbjio-ip"
+      + ip_tags                 = {}
+        name                    = "linux-lwhvbjio-ip"
+        tags                    = {
+            "environment" = "challenge"
+        }
+        # (10 unchanged attributes hidden)
+    }
+  # azurerm_subnet.network-subnet has been changed
+  ~ resource "azurerm_subnet" "network-subnet" {
+        id                                             = "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/virtualNetworks/linux-web-challenge-vnet/subnets/linux-web-challenge-subnet"
+        name                                           = "linux-web-challenge-subnet"
+      + service_endpoint_policy_ids                    = []
+      + service_endpoints                              = []
+        # (6 unchanged attributes hidden)
+    }
+  # azurerm_network_interface.linux-vm-nic has been changed
+  ~ resource "azurerm_network_interface" "linux-vm-nic" {
+        id                            = "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/networkInterfaces/linux-lwhvbjio-nic"
+      + mac_address                   = "00-0D-3A-05-35-72"
+        name                          = "linux-lwhvbjio-nic"
+        tags                          = {
+            "environment" = "challenge"
+        }
+      + virtual_machine_id            = "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Compute/virtualMachines/linux-lwhvbjio-vm"
+        # (9 unchanged attributes hidden)
+
+        # (1 unchanged block hidden)
+    }
+  # azurerm_virtual_network.network-vnet has been changed
+  ~ resource "azurerm_virtual_network" "network-vnet" {
+        id                    = "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/virtualNetworks/linux-web-challenge-vnet"
+        name                  = "linux-web-challenge-vnet"
+      ~ subnet                = [
+          + {
+              + address_prefix = "10.11.1.0/24"
+              + id             = "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/virtualNetworks/linux-web-challenge-vnet/subnets/linux-web-challenge-subnet"
+              + name           = "linux-web-challenge-subnet"
+              + security_group = "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/networkSecurityGroups/linux-challenge-lwhvbjio-nsg"
+            },
+        ]
+        tags                  = {
+            "application" = "web"
+            "environment" = "challenge"
+        }
+        # (6 unchanged attributes hidden)
+    }
+
+Unless you have made equivalent changes to your configuration, or ignored the relevant attributes using ignore_changes, the following plan may include actions to undo or respond to these changes.
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  - destroy
+
+Terraform will perform the following actions:
+
+  # azurerm_linux_virtual_machine.linux-vm will be destroyed
+  - resource "azurerm_linux_virtual_machine" "linux-vm" {
+      - admin_password                  = (sensitive value)
+      - admin_username                  = "tfroot" -> null
+      - allow_extension_operations      = true -> null
+      - availability_set_id             = "" -> null
+      - computer_name                   = "linux-lwhvbjio-vm" -> null
+      - dedicated_host_id               = "" -> null
+      - disable_password_authentication = false -> null
+      - encryption_at_host_enabled      = false -> null
+      - eviction_policy                 = "" -> null
+      - extensions_time_budget          = "PT1H30M" -> null
+      - id                              = "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Compute/virtualMachines/linux-lwhvbjio-vm" -> null
+      - license_type                    = "" -> null
+      - location                        = "eastus2" -> null
+      - max_bid_price                   = -1 -> null
+      - name                            = "linux-lwhvbjio-vm" -> null
+      - network_interface_ids           = [
+          - "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/networkInterfaces/linux-lwhvbjio-nic",
+        ] -> null
+      - platform_fault_domain           = -1 -> null
+      - priority                        = "Regular" -> null
+      - private_ip_address              = "10.11.1.4" -> null
+      - private_ip_addresses            = [
+          - "10.11.1.4",
+        ] -> null
+      - provision_vm_agent              = true -> null
+      - proximity_placement_group_id    = "" -> null
+      - public_ip_address               = "40.70.206.151" -> null
+      - public_ip_addresses             = [
+          - "40.70.206.151",
+        ] -> null
+      - resource_group_name             = "linux-web-challenge-rg" -> null
+      - size                            = "Standard_B1s" -> null
+      - source_image_id                 = "" -> null
+      - tags                            = {
+          - "environment" = "challenge"
+        } -> null
+      - virtual_machine_id              = "e2917f01-1222-48bd-840b-879285876394" -> null
+      - virtual_machine_scale_set_id    = "" -> null
+      - zone                            = "" -> null
+
+      - os_disk {
+          - caching                   = "ReadWrite" -> null
+          - disk_size_gb              = 30 -> null
+          - name                      = "linux-lwhvbjio-disk" -> null
+          - storage_account_type      = "Standard_LRS" -> null
+          - write_accelerator_enabled = false -> null
+        }
+
+      - source_image_reference {
+          - offer     = "UbuntuServer" -> null
+          - publisher = "Canonical" -> null
+          - sku       = "18.04-LTS" -> null
+          - version   = "latest" -> null
+        }
+    }
+
+  # azurerm_network_interface.linux-vm-nic will be destroyed
+  - resource "azurerm_network_interface" "linux-vm-nic" {
+      - applied_dns_servers           = [] -> null
+      - dns_servers                   = [] -> null
+      - enable_accelerated_networking = false -> null
+      - enable_ip_forwarding          = false -> null
+      - id                            = "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/networkInterfaces/linux-lwhvbjio-nic" -> null
+      - internal_domain_name_suffix   = "kthygt1phx1uvcrng5ksjqefwb.cx.internal.cloudapp.net" -> null
+      - location                      = "eastus2" -> null
+      - mac_address                   = "00-0D-3A-05-35-72" -> null
+      - name                          = "linux-lwhvbjio-nic" -> null
+      - private_ip_address            = "10.11.1.4" -> null
+      - private_ip_addresses          = [
+          - "10.11.1.4",
+        ] -> null
+      - resource_group_name           = "linux-web-challenge-rg" -> null
+      - tags                          = {
+          - "environment" = "challenge"
+        } -> null
+      - virtual_machine_id            = "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Compute/virtualMachines/linux-lwhvbjio-vm" -> null
+
+      - ip_configuration {
+          - name                          = "internal" -> null
+          - primary                       = true -> null
+          - private_ip_address            = "10.11.1.4" -> null
+          - private_ip_address_allocation = "Dynamic" -> null
+          - private_ip_address_version    = "IPv4" -> null
+          - public_ip_address_id          = "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/publicIPAddresses/linux-lwhvbjio-ip" -> null
+          - subnet_id                     = "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/virtualNetworks/linux-web-challenge-vnet/subnets/linux-web-challenge-subnet" -> null
+        }
+    }
+
+  # azurerm_network_security_group.linux-vm-nsg will be destroyed
+  - resource "azurerm_network_security_group" "linux-vm-nsg" {
+      - id                  = "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/networkSecurityGroups/linux-challenge-lwhvbjio-nsg" -> null
+      - location            = "eastus2" -> null
+      - name                = "linux-challenge-lwhvbjio-nsg" -> null
+      - resource_group_name = "linux-web-challenge-rg" -> null
+      - security_rule       = [
+          - {
+              - access                                     = "Allow"
+              - description                                = "Allow SSH"
+              - destination_address_prefix                 = "*"
+              - destination_address_prefixes               = []
+              - destination_application_security_group_ids = []
+              - destination_port_range                     = "22"
+              - destination_port_ranges                    = []
+              - direction                                  = "Inbound"
+              - name                                       = "AllowSSH"
+              - priority                                   = 150
+              - protocol                                   = "Tcp"
+              - source_address_prefix                      = "Internet"
+              - source_address_prefixes                    = []
+              - source_application_security_group_ids      = []
+              - source_port_range                          = "*"
+              - source_port_ranges                         = []
+            },
+          - {
+              - access                                     = "Allow"
+              - description                                = "Allow linux"
+              - destination_address_prefix                 = "*"
+              - destination_address_prefixes               = []
+              - destination_application_security_group_ids = []
+              - destination_port_range                     = "80"
+              - destination_port_ranges                    = []
+              - direction                                  = "Inbound"
+              - name                                       = "Allowlinux"
+              - priority                                   = 100
+              - protocol                                   = "Tcp"
+              - source_address_prefix                      = "Internet"
+              - source_address_prefixes                    = []
+              - source_application_security_group_ids      = []
+              - source_port_range                          = "*"
+              - source_port_ranges                         = []
+            },
+        ] -> null
+      - tags                = {
+          - "environment" = "challenge"
+        } -> null
+    }
+
+  # azurerm_public_ip.linux-vm-ip will be destroyed
+  - resource "azurerm_public_ip" "linux-vm-ip" {
+      - allocation_method       = "Static" -> null
+      - availability_zone       = "No-Zone" -> null
+      - id                      = "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/publicIPAddresses/linux-lwhvbjio-ip" -> null
+      - idle_timeout_in_minutes = 4 -> null
+      - ip_address              = "40.70.206.151" -> null
+      - ip_tags                 = {} -> null
+      - ip_version              = "IPv4" -> null
+      - location                = "eastus2" -> null
+      - name                    = "linux-lwhvbjio-ip" -> null
+      - resource_group_name     = "linux-web-challenge-rg" -> null
+      - sku                     = "Basic" -> null
+      - sku_tier                = "Regional" -> null
+      - tags                    = {
+          - "environment" = "challenge"
+        } -> null
+      - zones                   = [] -> null
+    }
+
+  # azurerm_resource_group.network-rg will be destroyed
+  - resource "azurerm_resource_group" "network-rg" {
+      - id       = "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg" -> null
+      - location = "eastus2" -> null
+      - name     = "linux-web-challenge-rg" -> null
+      - tags     = {
+          - "application" = "web"
+          - "environment" = "challenge"
+        } -> null
+    }
+
+  # azurerm_subnet.network-subnet will be destroyed
+  - resource "azurerm_subnet" "network-subnet" {
+      - address_prefix                                 = "10.11.1.0/24" -> null
+      - address_prefixes                               = [
+          - "10.11.1.0/24",
+        ] -> null
+      - enforce_private_link_endpoint_network_policies = false -> null
+      - enforce_private_link_service_network_policies  = false -> null
+      - id                                             = "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/virtualNetworks/linux-web-challenge-vnet/subnets/linux-web-challenge-subnet" -> null
+      - name                                           = "linux-web-challenge-subnet" -> null
+      - resource_group_name                            = "linux-web-challenge-rg" -> null
+      - service_endpoint_policy_ids                    = [] -> null
+      - service_endpoints                              = [] -> null
+      - virtual_network_name                           = "linux-web-challenge-vnet" -> null
+    }
+
+  # azurerm_subnet_network_security_group_association.linux-vm-nsg-association will be destroyed
+  - resource "azurerm_subnet_network_security_group_association" "linux-vm-nsg-association" {
+      - id                        = "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/virtualNetworks/linux-web-challenge-vnet/subnets/linux-web-challenge-subnet" -> null
+      - network_security_group_id = "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/networkSecurityGroups/linux-challenge-lwhvbjio-nsg" ->
+ null
+      - subnet_id                 = "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/virtualNetworks/linux-web-challenge-vnet/subnets/linux-web-challenge-subnet" -> null
+    }
+
+  # azurerm_virtual_network.network-vnet will be destroyed
+  - resource "azurerm_virtual_network" "network-vnet" {
+      - address_space         = [
+          - "10.11.0.0/16",
+        ] -> null
+      - dns_servers           = [] -> null
+      - guid                  = "4f83cf54-3d6f-4af7-8a2d-37d524c085b1" -> null
+      - id                    = "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/virtualNetworks/linux-web-challenge-vnet" -> null
+      - location              = "eastus2" -> null
+      - name                  = "linux-web-challenge-vnet" -> null
+      - resource_group_name   = "linux-web-challenge-rg" -> null
+      - subnet                = [
+          - {
+              - address_prefix = "10.11.1.0/24"
+              - id             = "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/virtualNetworks/linux-web-challenge-vnet/subnets/linux-web-challenge-subnet"
+              - name           = "linux-web-challenge-subnet"
+              - security_group = "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/networkSecurityGroups/linux-challenge-lwhvbjio-nsg"
+            },
+        ] -> null
+      - tags                  = {
+          - "application" = "web"
+          - "environment" = "challenge"
+        } -> null
+      - vm_protection_enabled = false -> null
+    }
+
+  # random_password.linux-vm-password will be destroyed
+  - resource "random_password" "linux-vm-password" {
+      - id               = "none" -> null
+      - length           = 16 -> null
+      - lower            = true -> null
+      - min_lower        = 2 -> null
+      - min_numeric      = 0 -> null
+      - min_special      = 2 -> null
+      - min_upper        = 2 -> null
+      - number           = true -> null
+      - override_special = "!@#$%&" -> null
+      - result           = (sensitive value)
+      - special          = true -> null
+      - upper            = true -> null
+    }
+
+  # random_string.linux-vm-name will be destroyed
+  - resource "random_string" "linux-vm-name" {
+      - id          = "lwhvbjio" -> null
+      - length      = 8 -> null
+      - lower       = true -> null
+      - min_lower   = 0 -> null
+      - min_numeric = 0 -> null
+      - min_special = 0 -> null
+      - min_upper   = 0 -> null
+      - number      = false -> null
+      - result      = "lwhvbjio" -> null
+      - special     = false -> null
+      - upper       = false -> null
+    }
+
+Plan: 0 to add, 0 to change, 10 to destroy.
+
+Changes to Outputs:
+  - linux_vm_admin_password   = (sensitive value)
+  - linux_vm_admin_username   = "tfroot" -> null
+  - linux_vm_ip_address       = "40.70.206.151" -> null
+  - linux_vm_name             = "linux-lwhvbjio-vm" -> null
+  - network_resource_group_id = "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg" -> null
+  - network_subnet_id         = "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/virtualNetworks/linux-web-challenge-vnet/subnets/linux-web-challenge-subnet" -> null
+  - network_vnet_id           = "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/virtualNetworks/linux-web-challenge-vnet" -> null
+╷
+│ Warning: Argument is deprecated
+│
+│   with azurerm_subnet.network-subnet,
+│   on net.tf line 29, in resource "azurerm_subnet" "network-subnet":
+│   29:   address_prefix       = var.network-subnet-cidr
+│
+│ Use the `address_prefixes` property instead.
+│
+│ (and one more similar warning elsewhere)
+╵
+╷
+│ Warning: Version constraints inside provider configuration blocks are deprecated
+│
+│   on prov.tf line 12, in provider "azurerm":
+│   12:   version = ">= 2.0.0"
+│
+│ Terraform 0.13 and earlier allowed provider version constraints inside the provider configuration block, but that is now deprecated and will be removed in a future version of Terraform. To silence this
+│ warning, move the provider version constraint into the required_providers block.
+╵
+
+Do you really want to destroy all resources?
+  Terraform will destroy all your managed infrastructure, as shown above.
+  There is no undo. Only 'yes' will be accepted to confirm.
+
+  Enter a value: yes
+
+azurerm_subnet_network_security_group_association.linux-vm-nsg-association: Destroying... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/virtualNetworks/linux-web-challenge-vnet/subnets/linux-web-challenge-subnet]
+azurerm_linux_virtual_machine.linux-vm: Destroying... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Compute/virtualMachines/linux-lwhvbjio-vm]
+azurerm_subnet_network_security_group_association.linux-vm-nsg-association: Destruction complete after 3s
+azurerm_network_security_group.linux-vm-nsg: Destroying... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/networkSecurityGroups/linux-challenge-lwhvbjio-nsg]
+azurerm_linux_virtual_machine.linux-vm: Still destroying... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-...pute/virtualMachines/linux-lwhvbjio-vm, 10s elapsed]
+azurerm_network_security_group.linux-vm-nsg: Still destroying... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-...ityGroups/linux-challenge-lwhvbjio-nsg, 10s elapsed]
+azurerm_network_security_group.linux-vm-nsg: Destruction complete after 10s
+azurerm_linux_virtual_machine.linux-vm: Still destroying... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-...pute/virtualMachines/linux-lwhvbjio-vm, 20s elapsed]
+azurerm_linux_virtual_machine.linux-vm: Still destroying... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-...pute/virtualMachines/linux-lwhvbjio-vm, 30s elapsed]
+azurerm_linux_virtual_machine.linux-vm: Still destroying... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-...pute/virtualMachines/linux-lwhvbjio-vm, 40s elapsed]
+azurerm_linux_virtual_machine.linux-vm: Still destroying... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-...pute/virtualMachines/linux-lwhvbjio-vm, 50s elapsed]
+azurerm_linux_virtual_machine.linux-vm: Still destroying... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-...pute/virtualMachines/linux-lwhvbjio-vm, 1m0s elapsed]
+azurerm_linux_virtual_machine.linux-vm: Still destroying... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-...pute/virtualMachines/linux-lwhvbjio-vm, 1m10s elapsed]
+azurerm_linux_virtual_machine.linux-vm: Destruction complete after 1m16s
+random_password.linux-vm-password: Destroying... [id=none]
+azurerm_network_interface.linux-vm-nic: Destroying... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/networkInterfaces/linux-lwhvbjio-nic]
+random_password.linux-vm-password: Destruction complete after 0s
+azurerm_network_interface.linux-vm-nic: Still destroying... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-...k/networkInterfaces/linux-lwhvbjio-nic, 10s elapsed]
+azurerm_network_interface.linux-vm-nic: Still destroying... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-...k/networkInterfaces/linux-lwhvbjio-nic, 20s elapsed]
+azurerm_network_interface.linux-vm-nic: Destruction complete after 20s
+azurerm_subnet.network-subnet: Destroying... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/virtualNetworks/linux-web-challenge-vnet/subnets/linux-web-challenge-subnet]
+azurerm_public_ip.linux-vm-ip: Destroying... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/publicIPAddresses/linux-lwhvbjio-ip]
+azurerm_subnet.network-subnet: Still destroying... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-...net/subnets/linux-web-challenge-subnet, 10s elapsed]
+azurerm_public_ip.linux-vm-ip: Still destroying... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-...rk/publicIPAddresses/linux-lwhvbjio-ip, 10s elapsed]
+azurerm_subnet.network-subnet: Destruction complete after 10s
+azurerm_virtual_network.network-vnet: Destroying... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/virtualNetworks/linux-web-challenge-vnet]
+azurerm_public_ip.linux-vm-ip: Destruction complete after 10s
+random_string.linux-vm-name: Destroying... [id=lwhvbjio]
+random_string.linux-vm-name: Destruction complete after 0s
+azurerm_virtual_network.network-vnet: Still destroying... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-...rtualNetworks/linux-web-challenge-vnet, 10s elapsed]
+azurerm_virtual_network.network-vnet: Destruction complete after 11s
+azurerm_resource_group.network-rg: Destroying... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg]
+azurerm_resource_group.network-rg: Still destroying... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-.../resourceGroups/linux-web-challenge-rg, 10s elapsed]
+azurerm_resource_group.network-rg: Still destroying... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-.../resourceGroups/linux-web-challenge-rg, 20s elapsed]
+azurerm_resource_group.network-rg: Still destroying... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-.../resourceGroups/linux-web-challenge-rg, 30s elapsed]
+azurerm_resource_group.network-rg: Still destroying... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-.../resourceGroups/linux-web-challenge-rg, 40s elapsed]
+azurerm_resource_group.network-rg: Still destroying... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-.../resourceGroups/linux-web-challenge-rg, 50s elapsed]
+azurerm_resource_group.network-rg: Still destroying... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-.../resourceGroups/linux-web-challenge-rg, 1m0s elapsed]
+azurerm_resource_group.network-rg: Still destroying... [id=/subscriptions/aaa0e033-4f96-4b05-b6e0-.../resourceGroups/linux-web-challenge-rg, 1m10s elapsed]
+azurerm_resource_group.network-rg: Destruction complete after 1m15s
+
+Destroy complete! Resources: 10 destroyed.
