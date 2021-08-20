@@ -127,7 +127,7 @@ resource "azurerm_linux_virtual_machine" "linux-vm" {
   computer_name  = "linux-${random_string.linux-vm-name.result}-vm"
   admin_username = var.linux_admin_username
   admin_password = random_password.linux-vm-password.result
-  custom_data    = base64encode(data.template_file.linux-vm-cloud-init.rendered)
+  #custom_data    = base64encode(data.template_file.linux-vm-cloud-init.rendered)
 
   disable_password_authentication = false
 
