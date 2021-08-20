@@ -47,18 +47,3 @@ linux_vm_name = "linux-lwhvbjio-vm"
 network_resource_group_id = "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg"
 network_subnet_id = "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/virtualNetworks/linux-web-challenge-vnet/subnets/linux-web-challenge-subnet"
 network_vnet_id = "/subscriptions/aaa0e033-4f96-4b05-b6e0-e27b611d922f/resourceGroups/linux-web-challenge-rg/providers/Microsoft.Network/virtualNetworks/linux-web-challenge-vnet"
-ondrejsoukup@Azure:~/clouddrive/TFstudy/01$ ls -l
-total 32
--rwxrwxrwx 1 ondrejsoukup ondrejsoukup   615 Aug 19 21:43 app-var.tf
--rwxrwxrwx 1 ondrejsoukup ondrejsoukup  4548 Aug 20 00:48 linux_vm.tf
--rwxrwxrwx 1 ondrejsoukup ondrejsoukup   774 Aug 19 18:21 linux_vm-var.tf
--rwxrwxrwx 1 ondrejsoukup ondrejsoukup   719 Aug 20 16:12 lnux_vm-out.tf
--rwxrwxrwx 1 ondrejsoukup ondrejsoukup   343 Aug 19 18:21 net-out.tf
--rwxrwxrwx 1 ondrejsoukup ondrejsoukup  1164 Aug 19 18:21 net.tf
--rwxrwxrwx 1 ondrejsoukup ondrejsoukup   317 Aug 19 18:21 net-var.tf
--rwxrwxrwx 1 ondrejsoukup ondrejsoukup   289 Aug 19 18:21 prov.tf
--rwxrwxrwx 1 ondrejsoukup ondrejsoukup   521 Aug 19 18:21 prov-var.tf
--rwxrwxrwx 1 ondrejsoukup ondrejsoukup    29 Aug 19 18:21 README.md
--rwxrwxrwx 1 ondrejsoukup ondrejsoukup 18523 Aug 20 16:15 terraform.tfstate
--rwxrwxrwx 1 ondrejsoukup ondrejsoukup   752 Aug 20 16:10 terraform.tfvars
-ondrejsoukup@Azure:~/clouddrive/TFstudy/01$
