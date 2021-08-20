@@ -19,7 +19,7 @@ variable "environment" {
   description = "company environment"
 }
 
-# azure region ##
+# azure region
 # https://github.com/claranet/terraform-azurerm-regions/blob/master/REGIONS.md
 variable "location" {
   type        = string
